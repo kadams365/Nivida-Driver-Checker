@@ -39,9 +39,7 @@ def get_nvidia_driver():
 def current_driver():
     result = subprocess.run(['nvidia-smi', '--query-gpu=driver_version', '--format=csv,noheader'],
                             stdout=subprocess.PIPE)
-    output = result.stdout.decode('utf-8').strip()
-
-    return output
+    return result.stdout.decode('utf-8').strip()
 
 
 def open_window(new_driver, installed_driver, link_to_driver):
